@@ -3,28 +3,39 @@
   <head>
     <meta charset="UTF-8">
     <title>K-bygg</title>
-    <style>
-      body {
-        background-color: black;
-        color: orange;
-      }
-    </style>
+    <!-- Display the countdown timer in an element -->
+<p id="demo"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("March 25, 2026 19:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
   </head>
-  <body>
-    
-  <h3 id="theHeader">K-bygg Fan Site<h3>
-
-  <p><bold>Why do we like K-bygg?</bold></p>
-  <p>We like K-bygg Because of their commercial. The commercial is playing a song and everything is falling apart. We</p>
-  <p><bold>How do you show that you are on of us?</bold></p>
-  <p>You simply pat on eno of your friends shoulders while you are humming on the melody from the commercial.</p>
-
-  <button onclick="exitWebsite()">FAST EXIT</button>
-  <script>
-      function exitWebsite() {
-        window.location.replace("https://classroom.google.com")
-      }
-  </script>
-  </body>
 </html>
   
